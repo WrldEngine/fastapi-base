@@ -6,8 +6,6 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.routes.router import router
 from app.core.project_config import settings
-from app.core.database import init_models
-
 
 def get_application() -> FastAPI:
     application = FastAPI(
@@ -32,5 +30,4 @@ def get_application() -> FastAPI:
 app = get_application()
 
 if __name__ == "__main__":
-    asyncio.run(init_models())
     uvicorn.run("main:app", host="127.0.0.1", reload=True)
